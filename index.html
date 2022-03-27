@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="mapbox/mapbox-gl.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <link rel="stylesheet" href="mapbox/mapbox-gl-generic-geocoder.css">
+        <style>
+        #map {
+            width: 994px;
+            height: 493px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+            <nav id="menu"></nav>
+              <div id="distance" class="distance-container"></div>
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="./mapbox/mapbox-gl.js"></script>
+        <script src="mapbox/mapbox-gl-generic-geocoder.min.js"></script>
+        <script src="data/All_Irl_Counties_1.js"></script>
+        <script src="data/Munster_2.js"></script>
+        <script src="data/Connaught_3.js"></script>
+        <script src="data/Ulster_4.js"></script>
+        <script src="data/Leinster_5.js"></script>
+        <script src="data/All_Ireland24_6.js"></script>
+        <script src="data/Ulster_AEDs_7.js"></script>
+        <script src="data/Connaught_AEDs_8.js"></script>
+        <script src="data/Munster_AEDs_9.js"></script>
+        <script src="data/Leinster_AEDs_10.js"></script>
+        <script src="data/Tyrone_AEDs_11.js"></script>
+        <script src="data/Fermanagh_AEDs_12.js"></script>
+        <script src="data/Donegal_AEDs_13.js"></script>
+        <script src="data/Armagh_AEDs_14.js"></script>
+        <script src="data/Antrim_AEDs_15.js"></script>
+        <script src="data/Down_AEDs_16.js"></script>
+        <script src="data/Derry_AEDs_17.js"></script>
+        <script src="data/Leitrim_AEDs_18.js"></script>
+        <script src="data/Galway_AEDs_19.js"></script>
+        <script src="data/Mayo_AEDs_20.js"></script>
+        <script src="data/Sligo_AEDs_21.js"></script>
+        <script src="data/Roscommon_AEDs_22.js"></script>
+        <script src="data/Limerick_AEDs_23.js"></script>
+        <script src="data/Clare_AEDs_24.js"></script>
+        <script src="data/Kerry_AEDs_25.js"></script>
+        <script src="data/Cork_AEDs_26.js"></script>
+        <script src="data/Waterford_AEDs_27.js"></script>
+        <script src="data/Tipperary_AEDs_28.js"></script>
+        <script src="data/Wexford_AEDs_29.js"></script>
+        <script src="data/Kilkenny_AEDs_30.js"></script>
+        <script src="data/Carlow_AEDs_31.js"></script>
+        <script src="data/Laois_AEDs_32.js"></script>
+        <script src="data/Offaly_AEDs_33.js"></script>
+        <script src="data/Kildare_AEDs_34.js"></script>
+        <script src="data/Wicklow_AEDs_35.js"></script>
+        <script src="data/Dublin_AEDs_36.js"></script>
+        <script src="data/Meath_AEDs_37.js"></script>
+        <script src="data/Westmeath_AEDs_38.js"></script>
+        <script src="data/Longford_AEDs_39.js"></script>
+        <script src="data/Monaghan_AEDs_40.js"></script>
+<script src="./mapbox/style.js"></script>
+<script src="./js/Autolinker.min.js"></script>
+<script>
+var map = new mapboxgl.Map({
+ container: 'map',
+ style: styleJSON,
+ center: [-6.704615810650806,53.47734242543231],
+ zoom: 6,
+ bearing: 360.0,
+ attributionControl: false
+});
+map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+map.addControl(new mapboxgl.AttributionControl({
+    customAttribution: '<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://github.com/mapbox/mapbox-gl-js" target="_blank">Mapbox GL JS</a> &middot; <a href="https://qgis.org" target="_blank">QGIS</a>',
+    compact: false
+}));
+var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+
+map.on('click', 'lyr_All_Ireland24_6_0', function (e) {
+    var description = '<table>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (e.features[0].properties['Name'] !== null ? autolinker.link(e.features[0].properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">County</th>\
+                        <td>' + (e.features[0].properties['County'] !== null ? autolinker.link(e.features[0].properties['County'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">descriptio</th>\
+                        <td>' + (e.features[0].properties['descriptio'] !== null ? autolinker.link(e.features[0].properties['descriptio'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Location</th>\
+                        <td>' + (e.features[0].properties['Location'] !== null ? autolinker.link(e.features[0].properties['Location'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Post code</th>\
+                        <td>' + (e.features[0].properties['Post code'] !== null ? autolinker.link(e.features[0].properties['Post code'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Eircode</th>\
+                        <td>' + (e.features[0].properties['Eircode'] !== null ? autolinker.link(e.features[0].properties['Eircode'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>'
+
+    new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML(description)
+        .addTo(map);
+});
+
+// Change the cursor to a pointer when the mouse is over the places layer.
+map.on('mouseenter', 'lyr_All_Ireland24_6_0', function () {
+    map.getCanvas().style.cursor = 'pointer';
+});
+
+// Change it back to a pointer when it leaves.
+map.on('mouseleave', 'lyr_All_Ireland24_6_0', function () {
+    map.getCanvas().style.cursor = '';
+});
+map.on('click', 'lyr_Offaly_AEDs_33_0', function (e) {
+    var description = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (e.features[0].properties['layer'] !== null ? autolinker.link(e.features[0].properties['layer'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>'
+
+    new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML(description)
+        .addTo(map);
+});
+
+// Change the cursor to a pointer when the mouse is over the places layer.
+map.on('mouseenter', 'lyr_Offaly_AEDs_33_0', function () {
+    map.getCanvas().style.cursor = 'pointer';
+});
+
+// Change it back to a pointer when it leaves.
+map.on('mouseleave', 'lyr_Offaly_AEDs_33_0', function () {
+    map.getCanvas().style.cursor = '';
+});
+        var geocodeNominatimRequest = function(query, mapBounds, options) {
+        var params = { format: "json", q: query, limit: options.limit };
+        var urlParams = new URLSearchParams(Object.entries(params));
+
+        return fetch("http://nominatim.openstreetmap.org/search?" + urlParams)
+            .then(function(response) {
+                if(response.ok) {
+                    return response.json();
+                } else {
+                    return [];
+                }
+            }).then(function(json) {
+                return json.map(function(result) {
+                    return {
+                        name: result.display_name,
+                        lat: result.lat,
+                        lon: result.lon,
+                        bbox: [result.boundingbox[2], result.boundingbox[0],
+                               result.boundingbox[3], result.boundingbox[1]]
+                    };
+                });
+            });
+        };
+
+        map.addControl(new MapboxGenericGeocoder({}, geocodeNominatimRequest));
+</script>
+        <script>
+        map.addControl(
+            new mapboxgl.GeolocateControl({
+                positionOptions: {
+                    enableHighAccuracy: true
+                },
+                trackUserLocation: true
+            })
+        );
+        </script>
+    </body>
+</html>
