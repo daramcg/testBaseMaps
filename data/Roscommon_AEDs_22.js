@@ -1,0 +1,1 @@
+var json_Roscommon_AEDs_22 = {"type":"FeatureCollection","name":"Roscommon_AEDs_22","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-8.080382,53.9965113]}}]}

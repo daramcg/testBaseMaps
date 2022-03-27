@@ -1,0 +1,1 @@
+var json_Sligo_AEDs_21 = {"type":"FeatureCollection","name":"Sligo_AEDs_21","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-8.4797105,54.31829110000001]}},{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-9.023638,54.277428]}}]}
